@@ -18,13 +18,12 @@
             <option value="$PROJECT_DIR$/commons/domain" />
             <option value="$PROJECT_DIR$/commons/tools" />
             <option value="$PROJECT_DIR$/commons/ui" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/notification" />
+            <option value="$PROJECT_DIR$/notification/ui" />
             <option value="$PROJECT_DIR$/overlay" />
             <option value="$PROJECT_DIR$/overlay/data" />
             <option value="$PROJECT_DIR$/overlay/domain" />
             <option value="$PROJECT_DIR$/overlay/ui" />
-            <option value="$PROJECT_DIR$/ui" />
           </set>
         </option>
       </GradleProjectSettings>

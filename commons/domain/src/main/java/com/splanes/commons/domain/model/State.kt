@@ -10,3 +10,9 @@ sealed class State<out E : KnownThrowable, out T> {
         fun <E : KnownThrowable> fail(e: E) = Fail(e)
     }
 }
+
+fun <E : KnownThrowable, T> State<E, T>.orThrow() = orNull() ?: throw (this as State.Fail).cause
+
+fun <E : KnownThrowable, T> State<E, T>.orNull() = (this as? State.Ok)?.result
+
+fun <E : KnownThrowable, T> State<E, T>.orElse(default: E.() -> T) = orNull() ?: default((this as State.Fail).cause)

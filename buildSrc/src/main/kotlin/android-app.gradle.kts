@@ -24,10 +24,3 @@ android {
         jvmTarget = "11"
     }
 }
-
-dependencies {
-    allprojects { println(name) }
-    implementation(project(":data"))
-    implementation(project(":domain"))
-    implementation(project(":ui"))
-}

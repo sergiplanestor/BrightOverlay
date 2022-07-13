@@ -1,6 +1,5 @@
 package com.splanes.commons.domain.errors.extensions
 
-import com.splanes.commons.domain.errors.handler.KnownThrowableHandler
 import com.splanes.commons.domain.errors.model.KnownThrowable
 
 /*
@@ -24,12 +23,3 @@ val KnownThrowable.Companion.NoName
 
 val KnownThrowable.Companion.Unknown
     get() = "Unknown"
-
-internal inline fun <reified T : KnownThrowable> KnownThrowableHandler.Handler<T>.isThrowableTypeHandled(throwable: Throwable?): Boolean =
-    T::class.isInstance(throwable)
-
-internal inline fun <reified T : KnownThrowable> KnownThrowableHandler.Handler<T>.takeIfKnown(
-    throwable: Throwable?,
-    crossinline action: (error: T) -> KnownThrowable = { it }
-): KnownThrowable? =
-    (throwable as? T)?.let(action)

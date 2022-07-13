@@ -6,16 +6,17 @@ plugins {
 }
 
 dependencies {
-    kapt += "com.google.dagger:hilt-android-compiler:2.40.5"
-    impl += "com.google.dagger:hilt-android:2.40.5"
-    impl += "androidx.core:core-ktx:1.8.0"
-    impl += "com.jakewharton.timber:timber:5.0.1"
-    impl += "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2"
-    impl += "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
-    add("implementation", platform("io.arrow-kt:arrow-stack:1.0.1"))
+    //kapt += "com.google.dagger:hilt-android-compiler:2.42"
+    add("kapt", "com.google.dagger:hilt-android-compiler:2.40.5")
+    api += "com.google.dagger:hilt-android:2.40.5"
+    api += "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    api += "androidx.hilt:hilt-navigation-compose:1.0.0"
+    api += "androidx.core:core-ktx:1.8.0"
+    api += "com.jakewharton.timber:timber:5.0.1"
+    api += "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2"
+    api += "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
 
-    impl += "io.arrow-kt:arrow-core"
-    impl += "io.arrow-kt:arrow-fx-coroutines"
+    kapt += "org.projectlombok:lombok:1.18.24"
 
     unitTest += "junit:junit:4.13.2"
     integrationTest += "androidx.test.ext:junit:1.1.3"

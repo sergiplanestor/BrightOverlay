@@ -9,12 +9,12 @@ pluginManagement {
     plugins {
         id("com.android.application") version "7.4.0-alpha05"
         id("com.android.library") version "7.4.0-alpha05"
-        id("kotlin-android") version "1.7.0"
-        id("kotlin-kapt") version "1.7.0"
+        id("kotlin-android") version "1.6.21"
+        id("kotlin-kapt") version "1.6.21"
         id("dagger.hilt.android.plugin")
         id("kotlin-parcelize")
         id("org.jlleitschuh.gradle.ktlint")
-        id("org.jetbrains.kotlin.android") version "1.7.0"
+        id("org.jetbrains.kotlin.android") version "1.6.21"
     }
 }
 
@@ -23,6 +23,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -36,7 +37,5 @@ include(
     ":overlay:data",
     ":overlay:domain",
     ":overlay:ui",
-    ":data",
-    ":ui",
-    ":domain",
+    ":notification:ui",
 )

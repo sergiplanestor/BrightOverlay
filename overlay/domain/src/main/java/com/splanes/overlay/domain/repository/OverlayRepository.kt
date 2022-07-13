@@ -7,7 +7,6 @@ import com.splanes.overlay.domain.model.OverlayVisibility
 
 
 interface OverlayRepository {
-    suspend fun findCurrentState(): OverlayState
-    suspend fun saveState(visibility: OverlayVisibility, opacity: OverlayOpacity, color: OverlayColor): OverlayState
-    suspend fun updateState(update: suspend OverlayState.() -> OverlayState): OverlayState
+    suspend fun lastState(): OverlayState?
+    suspend fun updateState(state: OverlayState)
 }

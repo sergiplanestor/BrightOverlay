@@ -10,4 +10,5 @@ android {
 
 dependencies {
     implementation(project(":commons:domain"))
+    api("com.google.code.gson:gson:2.9.0")
 }

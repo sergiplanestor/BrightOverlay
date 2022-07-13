@@ -25,3 +25,16 @@ fun String.remove(str: String, lazy: Boolean = false, ignoreCase: Boolean = true
     } else {
         replace(oldValue = str, newValue = String.empty, ignoreCase)
     }
+
+enum class Joiner(val value: String) {
+    None(value = ""),
+    Comma(value = ","),
+    Break(value = "\n"),
+}
+
+fun join(joiners: List<Joiner> = listOf(Joiner.None), vararg values: String): String = buildString {
+    values.forEach { s ->
+        append(s)
+        joiners.map { joiner -> joiner.value }.forEach { joiner -> append(joiner) }
+    }
+}

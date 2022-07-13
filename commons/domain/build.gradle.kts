@@ -11,6 +11,6 @@ android {
 dependencies {
 
     api(project(":commons:tools"))
-
-    implementation(kotlin("reflect"))
+    implementation("androidx.core:core-ktx:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
 }

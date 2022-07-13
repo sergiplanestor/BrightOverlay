@@ -1,15 +1,11 @@
 package com.splanes.commons.domain.usecase
 
 import android.os.Parcelable
-import com.splanes.commons.domain.errors.handler.AppThrowableHandler
 import com.splanes.commons.domain.errors.model.KnownThrowable
 import com.splanes.commons.domain.model.State
 import javax.inject.Inject
 
 abstract class UseCase<Params : UseCase.Request, Result> {
-
-    @Inject
-    private lateinit var errorHandler: AppThrowableHandler
 
     suspend operator fun invoke(params: Params): State<KnownThrowable, Result> =
         try {
@@ -31,7 +27,8 @@ abstract class UseCase<Params : UseCase.Request, Result> {
         throw NotImplementedError(ERR_MSG_SILENCED)
 
     protected open fun Throwable.handle(): State.Fail<KnownThrowable> =
-        errorHandler.handleOrNull(throwable = this)?.let { e -> State.fail(e) } ?: throw this
+        (this as? KnownThrowable)?.let { State.fail(it) } ?: throw this
+        // TODO ErrorHandler
 
     interface Request : Parcelable
 }

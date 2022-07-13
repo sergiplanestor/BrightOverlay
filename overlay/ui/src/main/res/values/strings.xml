@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="overlay">Overlay</string>
+    <string name="overlay_settings_title">Settings</string>
+    <string name="overlay_settings_layer_color">Layer color</string>
+    <string name="overlay_settings_layer_alpha">Layer alpha</string>
+    <string name="overlay_settings_layer_show">Show</string>
+    <string name="overlay_settings_layer_hide">Hide</string>
+    <string name="overlay_settings_permissions_denied_reason">Ouch, we need to have access to draw overlay,
+        please grant the required permissions :)!
+    </string>
+    <string name="overlay_settings_req_permission">Permission Settings</string>
+</resources>

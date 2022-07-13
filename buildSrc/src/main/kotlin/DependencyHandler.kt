@@ -5,6 +5,7 @@ enum class DependencyImport(val type: String) {
   Implementation("implementation"),
   Api("api"),
   Kapt("kapt"),
+  AnnotationProcessor("annotationProcessor"),
   TestImplementation("testImplementation"),
   AndroidTestImplementation("androidTestImplementation"),
 }
@@ -20,6 +21,7 @@ sealed class DependencyHandlerScopeWrapper(open val handler: DependencyHandlerSc
   data class Kapt(override val handler: DependencyHandlerScope) : DependencyHandlerScopeWrapper(handler)
   data class TestImpl(override val handler: DependencyHandlerScope) : DependencyHandlerScopeWrapper(handler)
   data class AndroidTestImpl(override val handler: DependencyHandlerScope) : DependencyHandlerScopeWrapper(handler)
+  data class AnnotationProcessor(override val handler: DependencyHandlerScope) : DependencyHandlerScopeWrapper(handler)
 }
 operator fun DependencyHandlerScopeWrapper.plusAssign(id: String) {
   when(this) {
@@ -28,6 +30,7 @@ operator fun DependencyHandlerScopeWrapper.plusAssign(id: String) {
     is DependencyHandlerScopeWrapper.Kapt -> handler.kapt(id)
     is DependencyHandlerScopeWrapper.TestImpl -> handler.testImpl(id)
     is DependencyHandlerScopeWrapper.AndroidTestImpl -> handler.androidTestImpl(id)
+    is DependencyHandlerScopeWrapper.AnnotationProcessor -> handler.annotationProcessor(id)
   }
 }
 
@@ -37,6 +40,8 @@ val DependencyHandlerScope.api: DependencyHandlerScopeWrapper get() = Dependency
 val DependencyHandlerScope.kapt: DependencyHandlerScopeWrapper get() = DependencyHandlerScopeWrapper.Kapt(this)
 val DependencyHandlerScope.unitTest: DependencyHandlerScopeWrapper get() = DependencyHandlerScopeWrapper.TestImpl(this)
 val DependencyHandlerScope.integrationTest: DependencyHandlerScopeWrapper get() = DependencyHandlerScopeWrapper.AndroidTestImpl(this)
+val DependencyHandlerScope.annotationProcessor : DependencyHandlerScopeWrapper get() = DependencyHandlerScopeWrapper.AnnotationProcessor(this)
+
 
 operator fun DependencyHandlerScope.plusAssign(dependency: Dependency) {
   add(dependency.import.type, dependency.id)
@@ -64,6 +69,10 @@ infix fun DependencyHandlerScope.testImpl(id: String) {
 
 infix fun DependencyHandlerScope.androidTestImpl(id: String) {
   libs += Dependency(id, DependencyImport.AndroidTestImplementation)
+}
+
+infix fun DependencyHandlerScope.annotationProcessor(id: String) {
+  libs += Dependency(id, DependencyImport.AnnotationProcessor)
 }
 
 fun Project.isApp(): Boolean =

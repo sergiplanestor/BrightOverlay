@@ -13,6 +13,9 @@
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/domain/src/main/res/drawable/studio.xml" value="0.1" />
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/domain/src/main/res/drawable/studio_svg.xml" value="0.226" />
+        <entry key="..\:/D3V/Android/Apps/BrightOverlay/overlay/ui/src/main/java/com/splanes/overlay/ui/screen/OverlayColorSettings.kt" value="0.1" />
+        <entry key="..\:/D3V/Android/Apps/BrightOverlay/overlay/ui/src/main/java/com/splanes/overlay/ui/screen/OverlaySettingsScreen.kt" value="0.8604336043360433" />
+        <entry key="..\:/D3V/Android/Apps/BrightOverlay/overlay/ui/src/main/java/com/splanes/overlay/ui/screen/subcomponents/OverlayAlphaSettings.kt" value="0.1" />
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/ui/src/main/res/drawable/ic_launcher_background.xml" value="0.365" />
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/ui/src/main/res/drawable/ic_launcher_foreground.xml" value="0.365" />
         <entry key="..\:/D3V/Android/Apps/BrightOverlay/ui/src/main/res/drawable/ic_round_settings_brightness_24.xml" value="0.365" />
